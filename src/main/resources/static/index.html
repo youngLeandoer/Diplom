@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таможенная Система</title>
+</head>
+<body>
+<div>
+    <h2>Таможенные данные</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Поле 1</th>
+            <th>Поле 2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in customsData" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td>{{ item.customsField1 }}</td>
+            <td>{{ item.customsField2 }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Добавить таможенные данные</h2>
+    <form @submit.prevent="addCustomsRecord">
+        <label for="customsField1">Поле 1:</label>
+        <input type="text" id="customsField1" v-model="newCustomsRecord.customsField1" required>
+
+        <label for="customsField2">Поле 2:</label>
+        <input type="text" id="customsField2" v-model="newCustomsRecord.customsField2" required>
+
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
